@@ -1,5 +1,11 @@
 <!-- Bootstrap Carousel -->
 <div id="blockchainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="#" class="btn btn-link text-primary btn-lg px-4 shadow-sm" style="font-weight: bold; text-decoration: none; display: flex; align-items: center; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
+            Info Selengkapnya
+            <i class="bi bi-arrow-right ms-2" style="font-size: 1.25rem;"></i>
+        </a>
+    </div>
     <div class="carousel-inner">
         <!-- Slide 1 -->
         <div class="carousel-item active">
@@ -7,161 +13,106 @@
                 <div class="col-md-3">
                     <div class="carousel-box">
                         <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Blockchain">
-                        <h2>🔗 Apa Itu Blockchain?</h2>
-                        <p>Blockchain adalah teknologi yang memungkinkan penyimpanan data secara terdesentralisasi dan
-                            aman.</p>
+                        <h3>Alasan Blockchain Penting</h3>
+                        <p>Sistem tradisional rentan manipulasi. Blockchain hadir sebagai solusi aman & transparan.</p>
+                        <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="carousel-box">
                         <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Cara Kerja">
-                        <h2>📜 Cara Kerja Blockchain</h2>
-                        <p>Setiap transaksi dicatat dalam blok, diverifikasi oleh jaringan, lalu ditambahkan ke rantai
-                            blok.</p>
+                        <h3>Blockchain di Sektor Bisnis</h3>
+                        <p>Energi: Perdagangan energi P2P.<br>
+                           Keuangan: Transaksi cepat & efisien.<br>
+                           Media: Hak cipta yang adil.<br>
+                           Ritel: Rantai pasok transparan.</p>
+                        <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="carousel-box">
                         <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Keamanan">
-                        <h2>🔒 Keamanan Blockchain</h2>
-                        <p>Data di dalam blockchain tidak bisa diubah, membuatnya lebih aman dibanding database
-                            tradisional.</p>
+                        <h3>Fitur Blockchain</h3>
+                        <p>Desentralisasi: Tanpa pihak ketiga.<br>
+                           Transparansi: Riwayat transaksi terbuka.<br>
+                           Kekekalan: Data tak bisa diubah.</p>
+                        <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="carousel-box">
                         <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Masa Depan">
-                        <h2>🚀 Masa Depan Blockchain</h2>
-                        <p>Blockchain berpotensi mengubah berbagai industri, mulai dari keuangan, kesehatan, hingga
-                            pemerintahan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="carousel-box">
-                        <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Smart Contracts">
-                        <h2>📜 Smart Contracts</h2>
-                        <p>Smart contracts memungkinkan transaksi otomatis tanpa perantara.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="carousel-box">
-                        <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Crypto">
-                        <h2>💰 Cryptocurrency</h2>
-                        <p>Bitcoin, Ethereum, dan berbagai aset digital berjalan di atas teknologi blockchain.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="carousel-box">
-                        <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="NFT">
-                        <h2>🎨 NFT & Blockchain</h2>
-                        <p>Teknologi blockchain memungkinkan kepemilikan digital yang unik melalui NFT.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="carousel-box">
-                        <img src="{{ asset('images/bg-block.png') }}" class="carousel-img" alt="Web3">
-                        <h2>🌐 Web3 & Desentralisasi</h2>
-                        <p>Blockchain adalah fondasi dari Web3, internet masa depan yang lebih desentralisasi.</p>
+                        <h3>Komponen Blockchain</h3>
+                        <p>1. Blok<br>
+                           2. Rantai<br>
+                           3. Node<br>
+                           4. Konsensus.</p>
+                        <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Tombol Navigasi -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#blockchainCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#blockchainCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
 </div>
 
 <!-- CSS -->
 <style>
-    /* Menghilangkan padding dan margin default */
-    body,
-    html {
-        padding: 0;
-        margin: 0;
-        background-color: #f0f0f0;
-        /* Background abu-abu pada seluruh halaman */
-    }
-
-    .carousel {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0;
-    }
-
     .carousel-box {
         background: #808080;
-        /* Warna abu-abu */
         color: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-        height: 400px;
-        /* Card height */
+        height: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
-
     .carousel-img {
         width: 100%;
-        height: 200px;
-        /* Adjust height to maintain aspect ratio */
+        height: 150px;
         object-fit: contain;
-        /* Ensures the image fits within the card without distortion */
         border-radius: 10px;
     }
 
-    h2 {
-        font-size: 18px;
+    .carousel-box h3 {
+        font-size: 16px;
         font-weight: bold;
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
-    p {
-        font-size: 14px;
-        margin-top: 10px;
+    .carousel-box p {
+        font-size: 12px;
+        margin-top: 5px;
+        flex-grow: 1;
     }
 
-    /* Mengatur posisi tombol navigasi */
-    .carousel-control-prev,
-    .carousel-control-next {
-        background-color: transparent;
-        border: none;
-        padding: 10px;
-        border-radius: 50%;
-        font-size: 30px;
-        /* Ukuran font untuk panah */
-        color: white;
+    .btn-light {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
     }
 
-    /* Menambahkan tanda panah menggunakan Unicode */
-    .carousel-control-prev-icon::before {
-        content: '←';
-        /* Tanda panah kiri */
-        font-size: 30px;
+    /* Info Selengkapnya Button */
+    .btn-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
     }
 
-    .carousel-control-next-icon::before {
-        font-size: 30px;
+    .btn-link:hover {
+        transform: scale(1.1);
     }
 
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
+    .bi-arrow-right {
+        margin-left: 8px;
+        font-size: 1.25rem;
     }
 </style>
 

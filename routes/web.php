@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('layouts.dashboard');  // Pastikan ini sesuai dengan lokasi file
+})->name('dashboard');
 
 Route::get('/about', function () {
     return view('layouts.about');

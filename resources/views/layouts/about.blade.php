@@ -1,6 +1,8 @@
-@extends('welcome')
+@extends('app')
 
 @section('content')
-    <h1 class="text-center">Tentang Kami</h1>
-    <p class="text-center">Penjelasan tentang dunia asdasd...</p>
+    <div class="content-section" style="background-image: url('{{ asset('images/background.png') }}');">
+        <div class="content-text">
+            <h1 class="animated-title">TENTANG KAMI</h1>
+            <p class="animated-text">
 @endsection

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
-        <a class="navbar-brand fw-bolder fst-italic text-uppercase" href="{{ route('welcome') }}">GroupOften</a>
+        <a class="navbar-brand fw-bolder fst-italic text-uppercase" href="{{ route('dashboard') }}">GroupOften</a>
 
         <!-- Tombol Burger untuk Mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -24,3 +24,9 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .navbar {
+        margin-bottom: 50px;
+    }
+</style>

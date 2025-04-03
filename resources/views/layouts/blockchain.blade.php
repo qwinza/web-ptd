@@ -1,4 +1,3 @@
-@extends('welcome')
 
 @section('content')
     <h1 class="text-center">Blockchain</h1>
