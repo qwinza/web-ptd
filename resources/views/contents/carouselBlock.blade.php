@@ -1,7 +1,7 @@
 <!-- Bootstrap Carousel -->
 <div id="blockchainCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-link text-primary btn-lg px-4 shadow-sm"
+        <a href="{{ route('blockchain') }}" class="btn btn-link text-primary btn-lg px-4 shadow-sm"
             style="font-weight: bold; text-decoration: none; display: flex; align-items: center; transition: transform 0.3s ease;"
             onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
             Info Selengkapnya
