@@ -1,12 +1,25 @@
 <!-- Bootstrap Carousel -->
 <div id="blockchainCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('blockchain') }}" class="btn btn-link text-primary btn-lg px-4 shadow-sm"
-            style="font-weight: bold; text-decoration: none; display: flex; align-items: center; transition: transform 0.3s ease;"
-            onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
-            Info Selengkapnya
+        <a href="{{ route('blockchain') }}" class="btn btn-link btn-lg px-4"
+            style="
+        font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #d1d5db;
+        background-color: #2b2e33;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(36, 30, 30, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 20px rgba(209, 213, 219, 0.4)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.6)';">
+            Selengkapnya
             <i class="bi bi-arrow-right ms-2" style="font-size: 1.25rem;"></i>
         </a>
+
+
     </div>
     <div class="carousel-inner">
         <!-- Slide 1 -->
@@ -20,7 +33,19 @@
                             <h3>Alasan Blockchain Penting</h3>
                             <p>Sistem tradisional rentan manipulasi. Blockchain hadir sebagai solusi aman & transparan.
                             </p>
-                            <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
+                            @auth
+                                <!-- Jika user sudah login -->
+                                <a href="{{ url('/blockchain/alasan-blockchain-penting') }}"
+                                    class="btn btn-outline-light btn-sm mt-2">
+                                    Baca Selengkapnya
+                                </a>
+                            @else
+                                <!-- Jika user belum login -->
+                                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm mt-2"
+                                    onclick="return confirm('Silakan login terlebih dahulu untuk membaca selengkapnya.')">
+                                    Baca Selengkapnya
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -34,7 +59,19 @@
                                 Keuangan: Transaksi cepat & efisien.<br>
                                 Media: Hak cipta yang adil.<br>
                                 Ritel: Rantai pasok transparan.</p>
-                            <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
+                            @auth
+                                <!-- Jika user sudah login -->
+                                <a href="{{ url('/blockchain/blockchain-dalam-bisnis') }}"
+                                    class="btn btn-outline-light btn-sm mt-2">
+                                    Baca Selengkapnya
+                                </a>
+                            @else
+                                <!-- Jika user belum login -->
+                                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm mt-2"
+                                    onclick="return confirm('Silakan login terlebih dahulu untuk membaca selengkapnya.')">
+                                    Baca Selengkapnya
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -46,7 +83,19 @@
                             <p>Desentralisasi: Tanpa pihak ketiga.<br>
                                 Transparansi: Riwayat transaksi terbuka.<br>
                                 Kekekalan: Data tak bisa diubah.</p>
-                            <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
+                            @auth
+                                <!-- Jika user sudah login -->
+                                <a href="{{ url('/blockchain/fitur-teknologi-blockchain') }}"
+                                    class="btn btn-outline-light btn-sm mt-2">
+                                    Baca Selengkapnya
+                                </a>
+                            @else
+                                <!-- Jika user belum login -->
+                                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm mt-2"
+                                    onclick="return confirm('Silakan login terlebih dahulu untuk membaca selengkapnya.')">
+                                    Baca Selengkapnya
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -60,7 +109,18 @@
                                 2. Rantai<br>
                                 3. Node<br>
                                 4. Konsensus.</p>
-                            <a href="#" class="btn btn-outline-light btn-sm mt-2">Baca Selengkapnya</a>
+                                @auth
+                                <!-- Jika user sudah login -->
+                                <a href="{{ url('/blockchain/komponen-utama') }}" class="btn btn-outline-light btn-sm mt-2">
+                                    Baca Selengkapnya
+                                </a>
+                            @else
+                                <!-- Jika user belum login -->
+                                <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm mt-2"
+                                   onclick="return confirm('Silakan login terlebih dahulu untuk membaca selengkapnya.')">
+                                    Baca Selengkapnya
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>

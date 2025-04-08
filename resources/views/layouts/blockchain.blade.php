@@ -347,7 +347,10 @@
                 <div class="circle-number">{{ $index + 1 }}</div>
                 <div class="card-content">
                     <p>{{ $topic['content'] }}</p>
-                    <button type="button">Baca Selengkapnya</button>
+                    <a href="{{ route('blockchain.detail', ['slug' => Str::slug($topic['title'])]) }}">
+    <button>Baca Selengkapnya</button>
+</a>
+
                 </div>
             </div> @endforeach
     </div>

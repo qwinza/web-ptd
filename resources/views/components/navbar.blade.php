@@ -20,6 +20,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('crypto') }}">Crypto</a>
                 </li>
+
+                {{-- Tambahkan Login atau Logout di ujung kanan --}}
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary ms-3 px-3 " href="{{ route('login') }}">Login</a>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ms-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>

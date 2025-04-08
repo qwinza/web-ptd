@@ -123,15 +123,12 @@
         .card-title,
         .card-content {
             width: 48%;
-            height: 260px;
+            height: auto;
             border-radius: 15px;
             overflow: hidden;
             position: relative;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
         }
 
         .card-title:hover,
@@ -143,6 +140,10 @@
         .card-title {
             background: #1e1e1e;
             color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 240px;
         }
 
         .card-title img {
@@ -153,7 +154,6 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
-            filter: brightness(0.7);
         }
 
         .card-title::before {
@@ -172,23 +172,19 @@
             margin: 0;
             text-align: center;
             font-size: 1.3rem;
-            font-weight: 600;
             color: #fff;
         }
 
         .card-content {
-            background: rgba(30, 30, 30, 0.95);
+            background: #1e1e1e;
             color: white;
             padding: 20px;
             display: flex;
-            align-items: flex-start;
-            /* RATA KIRI */
-            justify-content: center;
-            text-align: left;
-            /* RATA KIRI */
-            backdrop-filter: blur(5px);
             flex-direction: column;
-            margin-bottom: 50px;
+            justify-content: space-between;
+            text-align: left;
+            min-height: 240px;
+            position: relative;
         }
 
         .card-content p {
@@ -329,7 +325,9 @@ Cryptocurrency berfungsi di atas jaringan yang terdesentralisasi, mengurangi ket
                 <div class="circle-number">{{ $index + 1 }}</div>
                 <div class="card-content">
                     <p>{{ $topic['content'] }}</p>
-                    <button type="button">Baca Selengkapnya</button>
+                    <a href="{{ route('crypto.detail', ['slug' => Str::slug($topic['title'])]) }}">
+                        <button>Baca Selengkapnya</button>
+                    </a>
                 </div>
             </div>
         @endforeach
