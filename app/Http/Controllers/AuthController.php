@@ -45,6 +45,12 @@ class AuthController extends Controller
         return redirect()->intended('/')->with('success', 'Registrasi berhasil!');
     }
 
+    public function showRegister()
+    {
+        return view('auth.register'); // pastikan ini sesuai dengan nama file Blade-mu
+    }
+
+
 
     public function logout()
     {
