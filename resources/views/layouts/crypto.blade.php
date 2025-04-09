@@ -1,268 +1,273 @@
 @extends('app')
 
 @section('content')
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background: #000;
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #000;
+    }
+
+    .landing-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 10%;
+        background-color: #000;
+        color: #fff;
+        flex-wrap: wrap;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .landing-image {
+        flex: 1;
+        max-width: 500px;
+        padding-right: 40px;
+    }
+
+    .landing-image img {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        animation: float 4s ease-in-out infinite, fadeIn 1.5s ease-out;
+    }
+
+    .landing-text {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    .landing-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .landing-text p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #ddd;
+    }
+
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 20px;
+        position: relative;
+    }
+
+    .vertical-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: white;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    .topic-row {
+        display: flex;
+        align-items: center;
+        margin: 60px 0;
+        position: relative;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .circle-number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        border: 3px solid white;
+        border-radius: 50%;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    .card-title,
+    .card-content {
+        width: 48%;
+        height: auto;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-title:hover,
+    .card-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+    }
+
+    .card-title {
+        background: #1e1e1e;
+        color: white;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 240px;
+        position: relative;
+    }
+
+    .card-title img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .card-title::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+        z-index: 1;
+    }
+
+    .card-title h2 {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        font-size: 1.3rem;
+        color: #fff;
+    }
+
+    .card-content {
+        background: #1e1e1e;
+        color: white;
+        padding: 20px;
+        text-align: left;
+        min-height: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-content p {
+        margin: 0 0 20px;
+        white-space: pre-line;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    .card-content .button-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .card-content button {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .card-content button:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .hidden-on-load {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
         .landing-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 80px 10%;
-            background-color: #000;
-            color: #fff;
-            flex-wrap: wrap;
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 20px;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .landing-image {
-            flex: 1;
-            max-width: 500px;
-            padding-right: 40px;
-        }
-
-        .landing-image img {
-            width: 80%;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            animation: float 4s ease-in-out infinite, fadeIn 1.5s ease-out;
-        }
-
+        .landing-image,
         .landing-text {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .landing-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .landing-text p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #ddd;
+            max-width: 100%;
+            padding: 0;
         }
 
         .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            position: relative;
+            padding: 30px 10px;
         }
 
-        .vertical-line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background-color: white;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
+        .vertical-line,
+        .circle-number {
+            display: none;
         }
 
         .topic-row {
-            display: flex;
-            align-items: center;
-            margin: 60px 0;
-            position: relative;
-            justify-content: space-between;
-        }
-
-        .circle-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background-color: black;
-            border: 3px solid white;
-            border-radius: 50%;
-            color: white;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
+            flex-direction: column;
+            align-items: stretch;
         }
 
         .card-title,
         .card-content {
-            width: 48%;
+            width: 100%;
             height: auto;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .card-title:hover,
-        .card-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            margin: 10px 0;
         }
 
         .card-title {
-            background: #1e1e1e;
-            color: white;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
-            height: 240px;
+            height: 200px;
         }
+    }
+</style>
 
-        .card-title img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .card-title::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
-            z-index: 1;
-        }
-
-        .card-title h2 {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-            width: 100%;
-            margin: 0;
-            text-align: center;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-
-        .card-content {
-            background: #1e1e1e;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: left;
-            min-height: 240px;
-            position: relative;
-        }
-
-        .card-content p {
-            margin: 0 0 10px;
-            white-space: pre-line;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .card-content button {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            padding: 8px 14px;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .card-content button:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .hidden-on-load {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .landing-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 20px;
-            }
-
-            .landing-image,
-            .landing-text {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            .wrapper {
-                padding: 30px 10px;
-            }
-
-            .vertical-line,
-            .circle-number {
-                display: none;
-            }
-
-            .topic-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .card-title,
-            .card-content {
-                width: 100%;
-                height: auto;
-                margin: 10px 0;
-            }
-
-            .card-title {
-                height: 200px;
-            }
-        }
-    </style>
 
     {{-- Landing Section --}}
     <div class="landing-section">
@@ -325,12 +330,18 @@ Cryptocurrency berfungsi di atas jaringan yang terdesentralisasi, mengurangi ket
                 <div class="circle-number">{{ $index + 1 }}</div>
                 <div class="card-content">
                     <p>{{ $topic['content'] }}</p>
-                    <a href="{{ route('crypto.detail', ['slug' => Str::slug($topic['title'])]) }}">
-                        <button>Baca Selengkapnya</button>
-                    </a>
+                    <div class="button-wrapper">
+                        <a href="{{ route('crypto.detail', ['slug' => Str::slug($topic['title'])]) }}">
+                            <button>Baca Selengkapnya</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         @endforeach
+
+
+
+
     </div>
 
     <script>

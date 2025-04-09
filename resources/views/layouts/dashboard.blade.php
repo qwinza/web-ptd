@@ -29,7 +29,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
-    /* Padding untuk content section */
+    /* Content section utama */
     .content-section {
         display: flex;
         justify-content: center;
@@ -40,13 +40,13 @@
         background-repeat: no-repeat;
         text-align: center;
         position: relative;
-        padding: 40px; /* Menambahkan padding untuk seluruh section */
+        padding: 40px;
     }
 
-    /* Padding untuk teks konten */
+    /* Teks di atas background */
     .content-text {
         font-family: 'DM Sans', sans-serif;
-        padding: 40px; /* Menambahkan padding di sekitar teks */
+        padding: 40px;
         border-radius: 10px;
         color: black;
         position: absolute;
@@ -72,10 +72,9 @@
         animation: fadeInSlide 1.5s ease-out 0.5s forwards;
     }
 
-    /* Margin untuk carousel section */
     .carousel-section {
-        margin: 30px 0; /* Menambahkan margin atas dan bawah */
-        padding: 20px; /* Memberikan sedikit ruang di dalam carousel */
+        margin: 30px 0;
+        padding: 20px;
     }
 
     @keyframes fadeInSlide {
@@ -87,6 +86,43 @@
         100% {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    /* ======================== */
+    /*         RESPONSIVE       */
+    /* ======================== */
+
+    @media (max-width: 768px) {
+        .content-section {
+            height: auto;
+            padding: 60px 20px;
+            background-size: 90%;
+        }
+
+        .content-text {
+            position: static;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+        .content-text p {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content-text h1 {
+            font-size: 32px;
+        }
+
+        .content-text p {
+            font-size: 16px;
         }
     }
 </style>

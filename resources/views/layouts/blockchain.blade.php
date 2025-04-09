@@ -337,22 +337,23 @@
                 ],
             ];
         @endphp
-
         @foreach ($topics as $index => $topic)
-            <div class="topic-row hidden-on-load">
-                <div class="card-title">
-                    <img src="{{ asset('images/' . $topic['img']) }}" alt="Image {{ $index + 1 }}">
-                    <h2>{{ $topic['title'] }}</h2>
-                </div>
-                <div class="circle-number">{{ $index + 1 }}</div>
-                <div class="card-content">
-                    <p>{{ $topic['content'] }}</p>
-                    <a href="{{ route('blockchain.detail', ['slug' => Str::slug($topic['title'])]) }}">
-    <button>Baca Selengkapnya</button>
-</a>
+    <div class="topic-row hidden-on-load">
+        <div class="card-title">
+            <img src="{{ asset('images/' . $topic['img']) }}" alt="Image {{ $index + 1 }}">
+            <h2>{{ $topic['title'] }}</h2>
+        </div>
+        <div class="circle-number">{{ $index + 1 }}</div>
+        <div class="card-content">
+            <p>{{ $topic['content'] }}</p>
+            <div class="w-full mt-3 flex justify-start sm:justify-center">
+                <a href="{{ route('blockchain.detail', ['slug' => Str::slug($topic['title'])]) }}">
+                    <button>Baca Selengkapnya</button>
+                </a>
+            </div>
+        </div>
+    </div> @endforeach
 
-                </div>
-            </div> @endforeach
     </div>
 
     <script>

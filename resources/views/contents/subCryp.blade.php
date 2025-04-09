@@ -1,4 +1,5 @@
 <div class="crypto-section fade-in">
+    <div class="crypto-image floating"></div>
     <div class="crypto-text">
         <h1 class="animated-title">Apa itu <br> Crypto?</h1>
         <p class="animated-text">
@@ -6,7 +7,6 @@
             Jadi, meskipun digunakan secara virtual, tidak mungkin ada pemalsuan yang merugikan pemiliknya.
         </p>
     </div>
-    <div class="crypto-image floating"></div>
 </div>
 
 <style>
@@ -26,6 +26,7 @@
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 1s ease-out, transform 1s ease-out;
+        flex-wrap: wrap;
     }
 
     .crypto-image {
@@ -37,6 +38,7 @@
         background-repeat: no-repeat;
         border-radius: 10px;
         animation: floating 3s infinite ease-in-out;
+        flex-shrink: 0;
     }
 
     .crypto-text {
@@ -65,6 +67,27 @@
         0% { transform: translateY(0px); }
         50% { transform: translateY(-20px); }
         100% { transform: translateY(0px); }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .crypto-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .crypto-text,
+        .crypto-image {
+            width: 100%;
+        }
+
+        .crypto-text h1 {
+            font-size: 40px;
+        }
+
+        .crypto-text p {
+            font-size: 18px;
+        }
     }
 </style>
 
