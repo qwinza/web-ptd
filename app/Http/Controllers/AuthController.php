@@ -50,8 +50,6 @@ class AuthController extends Controller
         return view('auth.register'); // pastikan ini sesuai dengan nama file Blade-mu
     }
 
-
-
     public function logout()
     {
         Auth::logout();
